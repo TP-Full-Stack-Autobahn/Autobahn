@@ -1,0 +1,38 @@
+// Generic 
+.atbh-input-autobahn, .atbh-select{
+    box-sizing: border-box;
+    padding: 10px;
+    max-width: 343px;
+    height: 60px;
+    background: #F9F9F9;
+    gap: 4px;
+
+    &:focus {
+        border-bottom: 2px solid #000000;
+    }
+    display: flex;
+    flex-direction: column;
+
+    label {
+        height: 20px;
+    }
+    input, select {
+        height: 40px;
+        color:#C00000;
+    }
+}
+
+// Select 
+.atbh-select-container {
+    display: flex;
+    max-width: 343px;
+    background: #F9F9F9;
+    .atbh-select {
+        flex: 1;
+    }
+    .atbh-select-arrow {
+        padding: 0px 10px;
+        margin: auto;
+        font-size: 12px;
+    }
+}

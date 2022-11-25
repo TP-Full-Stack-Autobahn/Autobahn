@@ -10,7 +10,6 @@ const HeaderComponent:React.FC = () => {
         <header className={styles.header}>
             <Image className={styles.logo} src="/logo.svg" alt="me" width="42" height="42" />
             <h1 className={bayon.className}>Autobahn</h1>
-            {/* Composant quentin btn */}
         </header>
     )
 }

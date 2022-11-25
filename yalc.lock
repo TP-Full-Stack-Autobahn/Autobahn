@@ -1,0 +1,9 @@
+{
+  "version": "v1",
+  "packages": {
+    "autobahn-ui": {
+      "signature": "db9438a45872c745e3322572c8a6d56f",
+      "file": true
+    }
+  }
+}

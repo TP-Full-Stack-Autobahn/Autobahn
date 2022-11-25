@@ -29,6 +29,6 @@ const Home:NextPage = () => {
         </>
   )
 }
-0
+
 
 export default Home

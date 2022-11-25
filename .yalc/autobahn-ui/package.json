@@ -1,0 +1,17 @@
+{
+  "name": "autobahn-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c",
+    "yalc:build": "npm run build && yalc publish --private",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "keywords": [],
+  "author": "Quentin Mendel",
+  "license": "ISC",
+  "yalcSig": "db9438a45872c745e3322572c8a6d56f"
+}
