@@ -3,18 +3,29 @@ import HeaderComponent from "../components/HeaderComponent";
 import styles from "../styles/pages/home.module.scss";
 import {InputComponent, SelectComponent} from "autobahn-ui";
 import FooterComponent from "../components/FooterComponent";
+import RegistrationSentComponent from "../components/RegistrationSentComponent";
+import SignUpComponent from "../components/SignUpComponent";
+import React from "react";
+import SignInComponent from "../components/SignInComponent";
+import NavigateBackComponent from "../components/NavigateBackComponent";
 
 const SignIn:NextPage = () => {
-  return (
-      <>
-          <HeaderComponent />
 
-          <section>
-              Sign in
-          </section>
+    const handleSignIn = () => {
+        console.log('LOG IN...')
+    }
 
-          <FooterComponent />
-      </>
+    return (
+        <>
+            <HeaderComponent />
+
+            <section className="container">
+                <NavigateBackComponent />
+                <SignInComponent onSubmit={() => handleSignIn()} />
+            </section>
+
+            <FooterComponent />
+        </>
   )
 }
 
