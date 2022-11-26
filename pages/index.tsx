@@ -2,7 +2,7 @@ import {NextPage} from "next";
 import HeaderComponent from "../components/HeaderComponent";
 import FooterComponent from "../components/FooterComponent";
 import styles from "../styles/pages/home.module.scss";
-import {InputComponent, SelectComponent} from "autobahn-ui";
+import {InputComponent, RadioComponent, SelectComponent} from "autobahn-ui";
 
 const Home:NextPage = () => {
     return (
@@ -17,16 +17,16 @@ const Home:NextPage = () => {
                 </div>
                 <form className="container">
                     <h1 className={styles.title}>Inscription</h1>
-                    <p>Je suis :</p>
-                    <input type="radio" id="company" name="client" value="company" />
-                    <label htmlFor="company">Une entreprise</label>
-                    <input type="radio" id="individual" name="client" value="individual" />
-                    <label htmlFor="individual">Un particulier</label>
+                    <p className={styles.subTitle}>Je suis :</p>
+                    <div className={styles.radioContainer}>
+                        <RadioComponent label="Une entreprise" value="company" name="client" />
+                        <RadioComponent label="Un particulier" value="individual" name="client" />
+                    </div>
                     <InputComponent type="text" name="lastname" label="Nom" />
                     <InputComponent type="text" name="firstname" label="Prénom" />
                     <InputComponent type="email" name="email" label="Email" />
                     <InputComponent type="number" name="phone" label="Téléphone" />
-                    {/*<SelectComponent name="nationality" options={['stezig','gfujazeno']} />*/}
+                    <SelectComponent name="nationality" label="Nationalité" options={{"none": "Séléctionner une nationalité", "french": "Française", "english": "Anglaise"}} />
                 </form>
             </section>
 

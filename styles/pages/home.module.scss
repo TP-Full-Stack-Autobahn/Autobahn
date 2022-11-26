@@ -1,13 +1,10 @@
 @import "../variables";
 
-.fullContainer {
+.bannerContainer {
   background-image: url("../../public/banner-mobile.png");
   background-size: cover;
-  width: 100%;
-  &.bannerContainer {
-    display: flex;
-    flex-direction: row-reverse;
-  }
+  display: flex;
+  flex-direction: row-reverse;
 
   p {
     background-color: #fff;
@@ -29,4 +26,13 @@
   margin: 34px 0 0 0;
   color: $primary;
   text-transform: uppercase;
+}
+
+.subTitle {
+  margin: 5px 0 10px 0;
+}
+
+.radioContainer {
+  display: flex;
+  gap: 10px;
 }
