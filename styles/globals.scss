@@ -13,3 +13,17 @@ a {
 * {
   box-sizing: border-box;
 }
+
+main {
+  display: flex;
+  flex-flow: column wrap;
+  min-height: 100vh;
+}
+
+section {
+  flex: 1;
+}
+
+.container {
+  padding: 14px;
+}

@@ -1,15 +1,20 @@
 import {NextPage} from "next";
-import HeadComponent from "../components/HeadComponent";
+import HeaderComponent from "../components/HeaderComponent";
+import styles from "../styles/pages/home.module.scss";
+import {InputComponent, SelectComponent} from "autobahn-ui";
+import FooterComponent from "../components/FooterComponent";
 
 const SignIn:NextPage = () => {
   return (
-    <div>
-      <HeadComponent title="Autobahn" description="Rent luxury vehicles online." />
+      <>
+          <HeaderComponent />
 
-      <main>
-        SignIn
-      </main>
-    </div>
+          <section>
+              Sign in
+          </section>
+
+          <FooterComponent />
+      </>
   )
 }
 

@@ -1,0 +1,32 @@
+@import "../variables";
+
+.fullContainer {
+  background-image: url("../../public/banner-mobile.png");
+  background-size: cover;
+  width: 100%;
+  &.bannerContainer {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  p {
+    background-color: #fff;
+    text-align: justify;
+    margin: 170px 0 0 0;
+    align-self: flex-end;
+    justify-self: flex-end;
+    width: 85%;
+    border-bottom: solid $primary 1px;
+    &::first-letter {
+      color: $primary;
+    }
+  }
+}
+
+.title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  margin: 34px 0 0 0;
+  color: $primary;
+  text-transform: uppercase;
+}

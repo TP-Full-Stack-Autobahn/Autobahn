@@ -1,11 +1,24 @@
 .header {
   display: flex;
   padding: 5px;
-  align-items: center;
 
-  h1 {
-    font-size: 24px;
-    line-height: 24px;
-    margin: 0 10px;
+  .logoContainer {
+    display: flex;
+    align-items: center;
+
+    h1 {
+      font-size: 24px;
+      line-height: 24px;
+      margin: 0 8px;
+      font-weight: 100;
+    }
+  }
+
+  .btn {
+    flex: 1;
+    padding: 8px;
+    align-self: flex-end;
+    justify-content: space-between;
   }
 }
+

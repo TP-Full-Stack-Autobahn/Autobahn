@@ -1,17 +1,16 @@
 import React from "react";
-import './HeaderComponent.module.scss'
-import styles from "./HeaderComponent.module.scss";
+import styles from "./FooterComponent.module.scss";
 
-const HeaderComponent:React.FC = () => {
+const FooterComponent:React.FC = () => {
     return (
-        <header className={styles.header}>
-            <div className="logo-container">
-                <img />
-            </div>
-            <h1>Autobahn</h1>
-            {/* Composant quentin btn */}
-        </header>
+        <footer className={styles.footer}>
+            <ul>
+                <li>Contact</li>
+                <li>Conditions générales d'utilisation (CGU)</li>
+            </ul>
+            <p>Autobahn {new Date().getFullYear()} - Tout droits reservés</p>
+        </footer>
     )
 }
 
-export default HeaderComponent
+export default FooterComponent
