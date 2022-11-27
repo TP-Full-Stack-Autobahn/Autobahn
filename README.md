@@ -16,3 +16,8 @@ yalc link autobahn-ui
 ```bash
 yalc update autobahn-ui
 ```
+
+Finally, start the server :
+```bash
+npm run dev
+```
