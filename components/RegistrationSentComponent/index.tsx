@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const RegistrationSentComponent:React.FC = () => {
     return (
-        <div className="container vertical-margin">
+        <div className="container">
             <h1 className="title">Inscription</h1>
             <p>
                 Votre demande d’inscription a bien été prise en compte.

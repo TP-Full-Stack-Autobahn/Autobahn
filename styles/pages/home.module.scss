@@ -1,10 +1,15 @@
 @import "../variables";
+@import "../breakpoints";
 
 .bannerContainer {
   background-image: url("../../public/banner-mobile.png");
   background-size: cover;
   display: flex;
   flex-direction: row-reverse;
+  @include breakpoint-md {
+    background-image: url("../../public/banner.png");
+    justify-content: center;
+  }
 
   p {
     background-color: #fff;
@@ -13,6 +18,16 @@
     justify-self: flex-end;
     width: 85%;
     border-bottom: solid $primary 1px;
+    @include breakpoint-sm {
+      margin: 300px 0 0 0;
+    }
+    @include breakpoint-md {
+      margin: 450px 0 0 0;
+      width: 80%;
+    }
+    @include breakpoint-lg {
+      width: 60%;
+    }
     &::first-letter {
       color: $primary;
     }

@@ -1,25 +1,44 @@
 @import "../../styles/variables";
+@import "../../styles/breakpoints";
 
-.title {
-  margin-bottom: 10px;
-}
-
-.inputContainer {
-  margin-bottom: 30px;
-}
-
-.radioContainer {
+.signUpForm {
   display: flex;
-  gap: 10px;
-}
+  flex-flow: column wrap;
+  @include breakpoint-md {
+    flex-flow: row wrap;
+  }
 
-.submitBtn {
-  margin-top: 20px;
-  width: 100%;
-}
+  .title {
+    margin-bottom: 10px;
+    width: 100%;
+  }
 
-.error {
-  margin: 5px 0;
-  color: $primary;
-  font-weight: bold;
+  .inputContainer {
+    margin-bottom: 30px;
+    @include breakpoint-md {
+      width: 50%;
+    }
+  }
+
+  .fullWidth {
+    width: 100%;
+  }
+
+  .radioContainer {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+
+  }
+
+  .submitBtn {
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .error {
+    margin: 5px 0;
+    color: $primary;
+    font-weight: bold;
+  }
 }

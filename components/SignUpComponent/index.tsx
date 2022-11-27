@@ -68,12 +68,12 @@ const SignUpComponent:React.FC<SignUpProps> = (props) => {
     }
 
     return (
-        <form className="container vertical-margin" onSubmit={e => handleSubmit(e)}>
-            <h1 className="title">Inscription</h1>
+        <form className={`container ${styles.signUpForm}`} onSubmit={e => handleSubmit(e)}>
+            <h1 className={`title ${styles.fullWidth}`}>Inscription</h1>
 
-            <p className={styles.title}>Je suis :</p>
+            <p className={`${styles.title} ${styles.fullWidth}`}>Je suis :</p>
 
-            <div className={styles.inputContainer}>
+            <div className={`${styles.inputContainer} ${styles.fullWidth}`}>
                 <div className={styles.radioContainer}>
                     <RadioComponent label="Une entreprise" value="company" name="client" />
                     <RadioComponent label="Un particulier" value="individual" name="client" />
@@ -110,7 +110,7 @@ const SignUpComponent:React.FC<SignUpProps> = (props) => {
                 {nationalityError && <p className={styles.error}>{nationalityError}</p>}
             </div>
 
-            <div className={styles.inputContainer}>
+            <div className={`${styles.inputContainer} ${styles.fullWidth}`}>
                 <CheckboxComponent label="J'atteste que je possède un permis de conduire valide." name="validate" value="validate" />
                 {validateError && <p className={styles.error}>{validateError}</p>}
             </div>

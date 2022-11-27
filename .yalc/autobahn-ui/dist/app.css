@@ -73,6 +73,7 @@ select {
   border: 1px solid #1e1e1e;
   cursor: pointer;
   font-weight: bold;
+  transition: 0.3s;
 }
 .atbh-btn.atbh-btn-primary {
   border: none;

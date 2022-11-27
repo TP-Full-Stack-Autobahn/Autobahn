@@ -1,6 +1,6 @@
 import React, {FormEvent, useState} from "react";
 import styles from "./SignInComponent.module.scss";
-import {ButtonComponent, CheckboxComponent, InputComponent, RadioComponent, SelectComponent} from "autobahn-ui";
+import {ButtonComponent, InputComponent} from "autobahn-ui";
 
 type SignUpProps = {
     onSubmit: () => void
@@ -38,7 +38,7 @@ const SignInComponent:React.FC<SignUpProps> = (props) => {
     }
 
     return (
-        <form className="vertical-margin" onSubmit={e => handleSubmit(e)}>
+        <form className={`${styles.signInForm}`} onSubmit={e => handleSubmit(e)}>
             <h1 className="title">Connexion</h1>
 
             <div className={styles.inputContainer}>

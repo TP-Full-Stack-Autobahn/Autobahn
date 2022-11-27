@@ -1,0 +1,14 @@
+@import "../variables";
+@import "../breakpoints";
+
+.signInForm {
+  @include breakpoint-lg {
+    width: 40%;
+  }
+  @include breakpoint-xl {
+    width: 30%;
+  }
+  @include breakpoint-xxl {
+    width: 25%;
+  }
+}
