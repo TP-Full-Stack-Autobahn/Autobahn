@@ -5,7 +5,7 @@ import {useRouter} from "next/router";
 const NavigateBackComponent:React.FC = () => {
     const router = useRouter()
 
-    return <p className={styles.navigateBack} onClick={() => router.back()}>← Retour</p>
+    return <p className={styles.navigateBack} onClick={() => router.back()}>← retour</p>
 }
 
 export default NavigateBackComponent

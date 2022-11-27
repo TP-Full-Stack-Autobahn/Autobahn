@@ -17,6 +17,7 @@ const HeaderComponent:React.FC = () => {
             <Link href="signin">
                 <ButtonComponent className={styles.btn}>
                     <Image src="/signin.svg" alt="Sign in" width="23" height="23" />
+                    <span>Connexion admin</span>
                 </ButtonComponent>
             </Link>
         </header>

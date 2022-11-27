@@ -1,7 +1,10 @@
+@import "../../styles/breakpoints";
+
 .header {
   display: flex;
   padding: 5px;
   justify-content: space-between;
+  align-items: center;
 
   .logoContainer {
     display: flex;
@@ -15,11 +18,34 @@
     }
   }
 
-  .btn {
+  .loginBtn {
     flex: 1;
     padding: 8px;
     align-self: flex-end;
     justify-content: space-between;
+    @include breakpoint-sm {
+      display: none;
+    }
+  }
+
+  .btn {
+    display: flex;
+    flex: 1;
+    padding: 10px;
+    align-items: center;
+
+    img {
+      @include breakpoint-sm {
+        display: none;
+      }
+    }
+
+    span {
+      display: none;
+      @include breakpoint-sm {
+        display: block;
+      }
+    }
   }
 }
 

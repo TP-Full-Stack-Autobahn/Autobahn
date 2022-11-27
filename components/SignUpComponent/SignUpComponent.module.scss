@@ -4,6 +4,7 @@
 .signUpForm {
   display: flex;
   flex-flow: column wrap;
+  justify-content: space-between;
   @include breakpoint-md {
     flex-flow: row wrap;
   }
@@ -16,7 +17,7 @@
   .inputContainer {
     margin-bottom: 30px;
     @include breakpoint-md {
-      width: 50%;
+      width: 48%;
     }
   }
 
@@ -34,6 +35,10 @@
   .submitBtn {
     margin-top: 20px;
     width: 100%;
+    @include breakpoint-md {
+      width: 50%;
+      margin-left: auto;
+    }
   }
 
   .error {

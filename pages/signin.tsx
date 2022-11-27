@@ -16,7 +16,7 @@ const SignIn:NextPage = () => {
         <>
             <HeaderComponent />
 
-            <section className={`container ${styles.signInForm}`}>
+            <section className={`${styles.signInFormContainer}`}>
                 <NavigateBackComponent />
                 <SignInComponent onSubmit={() => handleSignIn()} />
             </section>

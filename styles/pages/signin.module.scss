@@ -1,14 +1,18 @@
 @import "../variables";
 @import "../breakpoints";
 
-.signInForm {
-  @include breakpoint-lg {
-    width: 40%;
+.signInFormContainer {
+  background-color: #F5F5F5;
+  padding: 20px;
+  width: 100%;
+
+  @include breakpoint-sm {
+    padding: 10% 20%;
   }
-  @include breakpoint-xl {
-    width: 30%;
+  @include breakpoint-md {
+    padding: 5% 30%;
   }
   @include breakpoint-xxl {
-    width: 25%;
+    padding: 5% 38%;
   }
 }

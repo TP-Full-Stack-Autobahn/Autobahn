@@ -1,14 +1,23 @@
 @import "../../styles/variables";
 @import "../../styles/breakpoints";
 
-.downloadContainer {
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-  gap: 25px;
-  margin: 50px 0;
-  @include breakpoint-md {
-    flex-flow: row wrap;
-    justify-content: space-evenly;
+.registrationSentContainer {
+  background-color: #F9F9F9;
+  padding: 10px;
+
+  p {
+    margin: 0;
+  }
+
+  .downloadContainer {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    gap: 25px;
+    margin: 50px 0;
+    @include breakpoint-md {
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+    }
   }
 }
