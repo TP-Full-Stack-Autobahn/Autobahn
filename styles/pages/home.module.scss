@@ -8,6 +8,7 @@
   flex-direction: row-reverse;
   @include breakpoint-md {
     background-image: url("../../public/banner.png");
+    background-position: center;
     justify-content: center;
   }
 
