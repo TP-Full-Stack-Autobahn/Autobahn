@@ -21,7 +21,8 @@ type RegisteredUserProps = {
 const Admin:NextPage = () => {
     const {apiUrl, user} = useContext(AppContext)
     const [registeredUsers, setRegisteredUsers] = useState<Array<RegisteredUserProps>>([])
-    const [loading, setLoading] = useState<boolean>(true)
+    const [userLoading, setUserLoading] = useState<boolean>(true)
+    const [verifyLoading, setVerifyLoading] = useState<boolean>(false)
     const router = useRouter();
 
     useEffect(() => {
@@ -36,9 +37,9 @@ const Admin:NextPage = () => {
                 throw new Error('Erreur')
             }).then((payload: {users: Array<RegisteredUserProps>}) => {
                 setRegisteredUsers(payload.users)
-                setLoading(false)
+                setUserLoading(false)
             }).catch(e => {
-                setLoading(false)
+                setUserLoading(false)
                 console.log(e)
                 void router.push('/')
             })
@@ -46,6 +47,7 @@ const Admin:NextPage = () => {
     }, [user])
 
     const handleValidation = (id: number, index: number) => {
+        setVerifyLoading(true)
         fetch(`${apiUrl}/.user/valid-user/${id}`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${user?.token}`}
@@ -58,7 +60,9 @@ const Admin:NextPage = () => {
             const updatedUsers = [...registeredUsers]
             updatedUsers[index].validated = true
             setRegisteredUsers(updatedUsers)
+            setVerifyLoading(false)
         }).catch(e => {
+            setVerifyLoading(false)
             console.log(e)
         })
     }
@@ -84,7 +88,7 @@ const Admin:NextPage = () => {
                     <a><li>Liste des véhicules (WIP...)</li></a>
                 </ul>
                 <div className={`${styles.tableContainer}`}>
-                    {loading ?
+                    {userLoading ?
                         <LoadingComponent title="Chargement des données.." />
                         :
                         <table className={`${styles.table}`}>
@@ -121,6 +125,7 @@ const Admin:NextPage = () => {
                                             <ButtonComponent className={styles.editBtn}>Editer</ButtonComponent>
                                             :
                                             <ButtonComponent
+                                                loading={verifyLoading}
                                                 onClick={() => handleValidation(registeredUser.id, index)}>
                                                 Verifier
                                             </ButtonComponent>

@@ -6,9 +6,11 @@ import styles from "../styles/pages/home.module.scss";
 import React, {useContext, useEffect, useState} from "react";
 import RegistrationSentComponent from "../components/RegistrationSentComponent";
 import {AppContext} from "../contexts/AppContext";
+import {set} from "immutable";
 
 const Home:NextPage = () => {
     const [isRegistrationSent, setRegistrationSent] = useState<boolean>(false)
+    const [loading, setLoading] = useState<boolean>(false)
     const {apiUrl, user} = useContext(AppContext)
 
     useEffect(() => {
@@ -19,6 +21,7 @@ const Home:NextPage = () => {
     }, [])
 
     const handleSignUp = (data: FormData) => {
+        setLoading(true)
         const body = {
             "client": data.get('client'),
             "email": data.get('email'),
@@ -38,8 +41,10 @@ const Home:NextPage = () => {
             throw new Error('Erreur')
         }).then(() => {
             localStorage.setItem('registrationSent', JSON.stringify(true))
+            setLoading(false)
             setRegistrationSent(true)
         }).catch(e => {
+            setLoading(false)
             console.log(e)
         })
     }
@@ -64,7 +69,7 @@ const Home:NextPage = () => {
                     isRegistrationSent ?
                         <RegistrationSentComponent />
                         :
-                        <SignUpComponent onSubmit={data => handleSignUp(data)} />
+                        <SignUpComponent loading={loading} onSubmit={data => handleSignUp(data)} />
                 }
             </section>
 

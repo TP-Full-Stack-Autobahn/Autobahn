@@ -1,15 +1,15 @@
-import React, {FormEvent, useReducer} from "react";
+import React, {FormEvent, useReducer, useState} from "react";
 import styles from "./SignUpComponent.module.scss";
 import {ButtonComponent, CheckboxComponent, InputComponent, RadioComponent, SelectComponent} from "autobahn-ui";
 import errorReducer, {errorsReducerDefault} from "./errorReducer";
 
 type SignUpProps = {
+    loading: boolean
     onSubmit: (data: FormData) => void
 }
 
 const SignUpComponent:React.FC<SignUpProps> = (props) => {
-    const {onSubmit} = props
-
+    const {onSubmit, loading} = props
     const [state, dispatch] = useReducer(errorReducer, errorsReducerDefault)
 
     const handleSubmit = (e:FormEvent<HTMLFormElement>) => {
@@ -105,6 +105,7 @@ const SignUpComponent:React.FC<SignUpProps> = (props) => {
             </div>
 
             <ButtonComponent
+                loading={loading}
                 onClick={() => handleSubmit}
                 className={styles.submitBtn}>
                 Demander mon inscription

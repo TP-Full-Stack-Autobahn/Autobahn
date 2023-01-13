@@ -1,7 +1,7 @@
 import {NextPage} from "next";
 import HeaderComponent from "../components/HeaderComponent";
 import FooterComponent from "../components/FooterComponent";
-import React, {useContext, useEffect} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import SignInComponent from "../components/SignInComponent";
 import NavigateBackComponent from "../components/NavigateBackComponent";
 import styles from "../styles/pages/signin.module.scss";
@@ -10,13 +10,12 @@ import {useRouter} from "next/router";
 import LoadingComponent from "../components/LoadingComponent";
 
 const SignIn:NextPage = () => {
-    const {apiUrl, setUser, user, setToken} = useContext(AppContext)
+    const {apiUrl, user, setToken} = useContext(AppContext)
+    const [loading, setLoading] = useState<boolean>(false)
     const router = useRouter();
 
-    useEffect(() => {
-    }, [])
-
     const handleSignIn = (data: FormData) => {
+        setLoading(true)
         const body = {
             email: data.get('email'),
             password: data.get('password'),
@@ -32,8 +31,10 @@ const SignIn:NextPage = () => {
             throw new Error('Erreur')
         }).then((payload: {token: string}) => {
             localStorage.setItem('token', payload.token)
+            setLoading(false)
             setToken(payload.token)
         }).catch(e => {
+            setLoading(false)
             console.log(e)
         })
     }
@@ -58,7 +59,7 @@ const SignIn:NextPage = () => {
 
             <section className={`${styles.signInFormContainer}`}>
                 <NavigateBackComponent />
-                <SignInComponent onSubmit={data => handleSignIn(data)} />
+                <SignInComponent loading={loading} onSubmit={data => handleSignIn(data)} />
             </section>
 
             <FooterComponent />

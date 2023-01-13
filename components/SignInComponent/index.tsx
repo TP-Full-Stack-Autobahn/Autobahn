@@ -3,12 +3,12 @@ import styles from "./SignInComponent.module.scss";
 import {ButtonComponent, InputComponent} from "autobahn-ui";
 
 type SignUpProps = {
+    loading: boolean,
     onSubmit: (formData: FormData) => void
 }
 
 const SignInComponent:React.FC<SignUpProps> = (props) => {
-    const {onSubmit} = props
-
+    const {onSubmit, loading} = props
     const [idError, setIdError] = useState<string>('')
     const [passwordError, setPasswordError] = useState<string>('')
 
@@ -51,7 +51,7 @@ const SignInComponent:React.FC<SignUpProps> = (props) => {
                 {passwordError && <p className={styles.error}>{passwordError}</p>}
             </div>
 
-            <ButtonComponent className={styles.submitBtn}>Connexion</ButtonComponent>
+            <ButtonComponent loading={loading} className={styles.submitBtn}>Connexion</ButtonComponent>
         </form>
     )
 }

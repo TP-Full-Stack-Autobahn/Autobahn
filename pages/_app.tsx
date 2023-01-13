@@ -38,7 +38,6 @@ const App = ({ Component, pageProps }: AppProps) => {
                 }
             }).catch(() => {
                 setUser(null)
-                // localStorage.removeItem('token')
             })
         } else if(token === null) {
             setUser(null)
