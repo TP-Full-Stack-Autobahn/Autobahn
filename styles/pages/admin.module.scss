@@ -1,0 +1,71 @@
+@import "../variables";
+@import "../breakpoints";
+
+.adminContainer {
+  background-color: #F5F5F5;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px;
+
+  @include breakpoint-xl {
+    padding: 20px 22%;
+  }
+
+  .tabList {
+    text-decoration: none;
+    background-color: #fff;
+    padding: 10px;
+
+    a {
+      display: inline-block;
+      margin-right: 30px;
+      &:last-of-type {
+        margin-right: 0px;
+      }
+      &:hover {
+        border-bottom: 2px solid $primary;
+        cursor: pointer;
+      }
+      &.selected {
+        border-bottom: 2px solid $primary;
+        font-weight: bold;
+      }
+
+      li {
+        list-style: none;
+      }
+    }
+  }
+
+  .tableContainer {
+    background-color: #ffffff;
+    padding: 0 10px;
+    overflow-x: auto;
+
+    .table {
+      padding: 10px;
+      width: 100%;
+      border-collapse: collapse;
+
+      th, td {
+        padding: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: normal;
+      }
+
+      tbody tr {
+        padding: 10px;
+        border-top: 1px solid #eee;
+
+        .status {
+          font-weight: bold;
+        }
+
+        .editBtn {
+          background-color: #000;
+        }
+      }
+    }
+  }
+}

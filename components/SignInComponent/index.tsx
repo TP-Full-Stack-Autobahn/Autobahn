@@ -3,7 +3,7 @@ import styles from "./SignInComponent.module.scss";
 import {ButtonComponent, InputComponent} from "autobahn-ui";
 
 type SignUpProps = {
-    onSubmit: () => void
+    onSubmit: (formData: FormData) => void
 }
 
 const SignInComponent:React.FC<SignUpProps> = (props) => {
@@ -21,7 +21,7 @@ const SignInComponent:React.FC<SignUpProps> = (props) => {
         // @ts-ignore
         const formData = new FormData(e.target)
 
-        if (!formData.get('id')) {
+        if (!formData.get('email')) {
             setIdError('Veuillez entrer votre identifiant.')
             formError = true
         }
@@ -34,7 +34,7 @@ const SignInComponent:React.FC<SignUpProps> = (props) => {
             return
         }
 
-        onSubmit()
+        onSubmit(formData)
     }
 
     return (
@@ -42,7 +42,7 @@ const SignInComponent:React.FC<SignUpProps> = (props) => {
             <h1 className="title">Connexion</h1>
 
             <div className={styles.inputContainer}>
-                <InputComponent type="text" name="id" label="Identifiant" />
+                <InputComponent type="text" name="email" label="Identifiant" />
                 {idError && <p className={styles.error}>{idError}</p>}
             </div>
 

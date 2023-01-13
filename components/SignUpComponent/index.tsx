@@ -1,10 +1,10 @@
-import React, {FormEvent, useReducer, useState} from "react";
+import React, {FormEvent, useReducer} from "react";
 import styles from "./SignUpComponent.module.scss";
 import {ButtonComponent, CheckboxComponent, InputComponent, RadioComponent, SelectComponent} from "autobahn-ui";
 import errorReducer, {errorsReducerDefault} from "./errorReducer";
 
 type SignUpProps = {
-    onSubmit: () => void
+    onSubmit: (data: FormData) => void
 }
 
 const SignUpComponent:React.FC<SignUpProps> = (props) => {
@@ -53,7 +53,7 @@ const SignUpComponent:React.FC<SignUpProps> = (props) => {
             return
         }
 
-        onSubmit()
+        onSubmit(formData)
     }
 
     return (
@@ -104,7 +104,11 @@ const SignUpComponent:React.FC<SignUpProps> = (props) => {
                 {state.validateError && <p className={styles.error}>{state.validateError}</p>}
             </div>
 
-            <ButtonComponent className={styles.submitBtn}>Demander mon inscription</ButtonComponent>
+            <ButtonComponent
+                onClick={() => handleSubmit}
+                className={styles.submitBtn}>
+                Demander mon inscription
+            </ButtonComponent>
         </form>
     )
 }

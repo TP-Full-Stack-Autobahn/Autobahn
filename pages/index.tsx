@@ -3,15 +3,45 @@ import HeaderComponent from "../components/HeaderComponent";
 import FooterComponent from "../components/FooterComponent";
 import SignUpComponent from "../components/SignUpComponent";
 import styles from "../styles/pages/home.module.scss";
-import React, {useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import RegistrationSentComponent from "../components/RegistrationSentComponent";
+import {AppContext} from "../contexts/AppContext";
 
 const Home:NextPage = () => {
-    const [isLoggedIn, setLoggedIn] = useState<boolean>(false)
     const [isRegistrationSent, setRegistrationSent] = useState<boolean>(false)
+    const {apiUrl, user} = useContext(AppContext)
 
-    const handleSignUp = () => {
-        setRegistrationSent(true)
+    useEffect(() => {
+        const registrationSent = localStorage.getItem('registrationSent')
+        if (registrationSent) {
+            setRegistrationSent(true)
+        }
+    }, [])
+
+    const handleSignUp = (data: FormData) => {
+        const body = {
+            "client": data.get('client'),
+            "email": data.get('email'),
+            "lastname": data.get('lastname'),
+            "firstname": data.get('firstname'),
+            "phone": data.get('phone'),
+            "nationality": data.get('nationality')
+        }
+        fetch(`${apiUrl}/.user/inscription`, {
+            method: 'POST',
+            body: JSON.stringify(body),
+            headers: {'Content-Type': 'application/json'}
+        }).then(r => {
+            if (r.ok) {
+                return r.json()
+            }
+            throw new Error('Erreur')
+        }).then(() => {
+            localStorage.setItem('registrationSent', JSON.stringify(true))
+            setRegistrationSent(true)
+        }).catch(e => {
+            console.log(e)
+        })
     }
 
     return (
@@ -26,10 +56,15 @@ const Home:NextPage = () => {
                         Notre expérience est à votre service pour répondre à toutes vos demandes.
                     </p>
                 </div>
-                {isRegistrationSent ?
-                    <RegistrationSentComponent />
+                {user?.token ?
+                    <div style={{padding: 50, display: "flex", justifyContent: "center", alignItems: "center"}}>
+                        PAGE CONNECTÉ..
+                    </div>
                     :
-                    <SignUpComponent onSubmit={handleSignUp} />
+                    isRegistrationSent ?
+                        <RegistrationSentComponent />
+                        :
+                        <SignUpComponent onSubmit={data => handleSignUp(data)} />
                 }
             </section>
 
@@ -37,6 +72,5 @@ const Home:NextPage = () => {
         </>
   )
 }
-
 
 export default Home
