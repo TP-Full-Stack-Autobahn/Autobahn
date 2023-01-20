@@ -2,8 +2,7 @@
   "version": "v1",
   "packages": {
     "autobahn-ui": {
-      "signature": "edff0aa9e115436631443f1955eb9f48",
-      "file": true
+      "signature": "edff0aa9e115436631443f1955eb9f48"
     }
   }
 }
