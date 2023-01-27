@@ -1,0 +1,67 @@
+@import "../../styles/breakpoints";
+@import "../../styles/variables";
+
+.tabContainer {
+  display: flex;
+  flex-flow: column wrap;
+
+  .addBtn {
+    background-color: $primary;
+    align-self: flex-end;
+    width: auto;
+    margin-bottom: 10px;
+  }
+
+  .inputContainer {
+    margin-bottom: 10px;
+  }
+
+  .error {
+    margin: 5px 0;
+    color: $primary;
+    font-weight: bold;
+  }
+
+  .tableContainer {
+    background-color: #ffffff;
+    padding: 0 10px;
+    overflow-x: auto;
+
+    .table {
+      padding: 10px;
+      width: 100%;
+      border-collapse: collapse;
+
+      th, td {
+        padding: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: normal;
+      }
+
+      tbody tr {
+        padding: 10px;
+        border-top: 1px solid #eee;
+
+        .emptyMessage {
+          text-align: center;
+        }
+
+        .image {
+          width: 200px;
+          height: 150px;
+          object-fit: cover;
+          object-position: center;
+        }
+
+        .name {
+          width: 100%;
+        }
+
+        .deleteBtn {
+          background-color: $primary;
+        }
+      }
+    }
+  }
+}
