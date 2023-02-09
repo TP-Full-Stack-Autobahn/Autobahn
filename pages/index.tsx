@@ -1,4 +1,4 @@
-import {NextPage} from "next";
+import {NextPage, GetServerSideProps} from "next";
 import HeaderComponent from "../components/HeaderComponent";
 import FooterComponent from "../components/FooterComponent";
 import SignUpComponent from "../components/SignUpComponent";
@@ -7,13 +7,18 @@ import React, {useContext, useEffect, useState} from "react";
 import RegistrationSentComponent from "../components/RegistrationSentComponent";
 import {AppContext} from "../contexts/AppContext";
 import {set} from "immutable";
+type Props = { host: string | null };
 
-const Home:NextPage = () => {
+export const getServerSideProps: GetServerSideProps<Props> =
+    async context => ({ props: { host: context.req.headers.host || null } });
+
+const Home:NextPage<Props> = ({host}) => {
     const [isRegistrationSent, setRegistrationSent] = useState<boolean>(false)
     const [loading, setLoading] = useState<boolean>(false)
     const {apiUrl, user} = useContext(AppContext)
 
     useEffect(() => {
+        console.log(host)
         const registrationSent = localStorage.getItem('registrationSent')
         if (registrationSent) {
             setRegistrationSent(true)
